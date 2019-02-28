@@ -1,7 +1,7 @@
 package homework2;
 
 
-public class ChempioShipImmutable {
+public final class ChempioShipImmutable {
 
     private final String name;
     private final int age;

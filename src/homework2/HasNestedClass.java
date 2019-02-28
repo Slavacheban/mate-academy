@@ -5,11 +5,11 @@ public class HasNestedClass {
 
     class Inner {
         public void printName() {
-            System.out.println("InnerMethod says: The name of Outerclass is " + name );
+            System.out.println("InnerMethod says: The name of Outerclass is " + name);
         }
     }
 
     public static void main(String[] args) {
-            new HasNestedClass().new Inner().printName();
+        new HasNestedClass().new Inner().printName();
     }
 }

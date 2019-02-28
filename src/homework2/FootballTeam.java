@@ -1,6 +1,6 @@
 package homework2;
 
-public class FootballTeam implements Cloneable{
+public class FootballTeam implements Cloneable {
     private String goalkeeper;
     private String back;
     private String halfBack;
@@ -9,7 +9,7 @@ public class FootballTeam implements Cloneable{
     private String vinger;
     private String coach;
 
-    public FootballTeam(BuildTeam buildTeam) {
+    public FootballTeam(FootballTeamBuilder buildTeam) {
         goalkeeper = buildTeam.goalkeeper;
         back = buildTeam.back;
         halfBack = buildTeam.halfBack;
@@ -47,7 +47,11 @@ public class FootballTeam implements Cloneable{
         return coach;
     }
 
-    public static class BuildTeam {
+    public static FootballTeamBuilder builder() {
+        return new FootballTeamBuilder();
+    }
+
+    public static class FootballTeamBuilder {
         private String goalkeeper;
         private String back;
         private String halfBack;
@@ -56,46 +60,43 @@ public class FootballTeam implements Cloneable{
         private String vinger;
         private String coach;
 
-        public BuildTeam setGoalkeeper(String goalkeeper) {
+        public FootballTeamBuilder setGoalkeeper(String goalkeeper) {
             this.goalkeeper = goalkeeper;
             return this;
         }
 
-        public BuildTeam setBack(String back) {
+        public FootballTeamBuilder setBack(String back) {
             this.back = back;
             return this;
         }
 
-        public BuildTeam setHalfBack(String halfBack) {
+        public FootballTeamBuilder setHalfBack(String halfBack) {
             this.halfBack = halfBack;
             return this;
         }
 
-        public BuildTeam setForvard(String forvard) {
+        public FootballTeamBuilder setForvard(String forvard) {
             this.forvard = forvard;
             return this;
         }
 
-        public BuildTeam setFullBack(String fullBack) {
+        public FootballTeamBuilder setFullBack(String fullBack) {
             this.fullBack = fullBack;
             return this;
         }
 
-        public BuildTeam setVinger(String vinger) {
+        public FootballTeamBuilder setVinger(String vinger) {
             this.vinger = vinger;
             return this;
         }
 
-        public BuildTeam setCoach(String coach) {
+        public FootballTeamBuilder setCoach(String coach) {
             this.coach = coach;
             return this;
         }
 
-        public BuildTeam(String goalkeeper, String back, String halfBack, String forvard) {
-            this.goalkeeper = goalkeeper;
-            this.back = back;
-            this.halfBack = halfBack;
-            this.forvard = forvard;
+        private FootballTeamBuilder() {
+
         }
 
         public FootballTeam build() {
