@@ -32,14 +32,15 @@ public class CarDoor {
     }
 
     public void ChangeDoor() {
-        isOpen = (isOpen) ? false : true;
+        isOpen = (!isOpen);
     }
 
     public void ChengeWindow() {
-        isOpenWindow = (isOpenWindow) ? false : true;
+        isOpenWindow = (!isOpenWindow);
     }
 
     public void printConditionCar() {
-        System.out.println("Car door is " + ((isOpen) ? "Open" : "Close") + ": car window" + ((isOpenWindow) ? "Open" : "Close"));
+        System.out.println("Car door is " + ((isOpen) ? "Open" : "Close") +
+                ": car window" + ((isOpenWindow) ? "Open" : "Close"));
     }
 }

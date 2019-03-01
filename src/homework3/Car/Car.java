@@ -1,7 +1,9 @@
 package homework3.Car;
 
+import java.time.LocalDate;
+
 public class Car {
-    private final String dateOfBurn;
+    private final LocalDate dateOfBurn;
     private String typeOfEngine;
     private int maxSpeed;
     private int timeOf100km;
@@ -11,11 +13,13 @@ public class Car {
     private CarWheel[] allWheel;
     private CarDoor[] allDoor;
 
-    public Car(String dateOfBurn) {
+    public Car(LocalDate dateOfBurn) {
         this.dateOfBurn = dateOfBurn;
     }
 
-    public Car(String dateOfBurn, String typeOfEngine, int maxSpeed, int timeOf100km, int peopleCapacity, int hasPeople, int currentSpeed) {
+    public Car(LocalDate dateOfBurn, String typeOfEngine, int maxSpeed, int timeOf100km,
+               int peopleCapacity, int hasPeople, int currentSpeed, CarWheel[] allWheel,
+               CarDoor[] allDoor) {
         this.dateOfBurn = dateOfBurn;
         this.typeOfEngine = typeOfEngine;
         this.maxSpeed = maxSpeed;
@@ -23,6 +27,12 @@ public class Car {
         this.peopleCapacity = peopleCapacity;
         this.hasPeople = hasPeople;
         this.currentSpeed = currentSpeed;
+        this.allWheel = allWheel;
+        this.allDoor = allDoor;
+    }
+
+    public Car getCar() {
+        return new CarBuilder().build();
     }
 
     public void setCurrentSpeed(int currentSpeed) {
@@ -30,11 +40,15 @@ public class Car {
     }
 
     public void addOnePeople() {
-        if (peopleCapacity != hasPeople) hasPeople++;
+        if (peopleCapacity != hasPeople) {
+            hasPeople++;
+        }
     }
 
     public void minusOnePeaole() {
-        if (hasPeople != 0) hasPeople--;
+        if (hasPeople != 0) {
+            hasPeople--;
+        }
     }
 
     public void allInPEople() {
@@ -44,8 +58,7 @@ public class Car {
     public CarDoor getCarDoor(int i) {
         try {
             return allDoor[i];
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Нет такой двери");
             return null;
         }
@@ -61,13 +74,15 @@ public class Car {
         for (int i = 0; i < carWheels.length; i++) {
             allWheel[i] = carWheels[i];
         }
-        for (int i = carWheels.length; i < allWheel.length ; i++) {
+        for (int i = carWheels.length; i < allWheel.length; i++) {
             allWheel[i] = new CarWheel();
         }
     }
 
     public int carrentMaxSpeed() {
-        if(hasPeople ==0) return 0;
+        if (hasPeople == 0) {
+            return 0;
+        }
         else {
             double min = allWheel[0].getConditionOfWheel();
             for (int i = 1; i < allWheel.length; i++) {
@@ -82,9 +97,48 @@ public class Car {
     public void printCarrentConditionOfCar() {
         System.out.println("Car is " + dateOfBurn);
         System.out.println("typeOfEngine " + typeOfEngine);
-        System.out.println("MaxSpeed is "  +maxSpeed);
+        System.out.println("MaxSpeed is " + maxSpeed);
         System.out.println("current max speed is " + carrentMaxSpeed());
-        System.out.println("There are "  + hasPeople + " of people");
+        System.out.println("There are " + hasPeople + " of people");
     }
 
+    class CarBuilder {
+        Car car;
+
+        Car build() {
+            return car;
+        }
+
+        void setCarMaxSpeed(int maxSpeed) {
+            car.maxSpeed = maxSpeed;
+        }
+
+        void setCarTimeOf100km(int timeOf100km) {
+            car.timeOf100km = timeOf100km;
+        }
+
+        void setCarPeopleCapacity(int peopleCapacity) {
+            car.peopleCapacity = peopleCapacity;
+        }
+
+        void setCarHasPeople(int hasPeople) {
+            car.hasPeople = hasPeople;
+        }
+
+        void setCarTypeOfEngine(String typeOfEngine) {
+            car.typeOfEngine = typeOfEngine;
+        }
+
+        void setCarCurrentSpeed(int currentSpeed) {
+            car.currentSpeed = currentSpeed;
+        }
+
+        void setCarAllWheel(CarWheel[] allWheel) {
+            car.allWheel = allWheel;
+        }
+
+        void setCarAllDoor(CarDoor[] allDoor) {
+            car.allDoor = allDoor;
+        }
+    }
 }

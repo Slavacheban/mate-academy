@@ -23,6 +23,7 @@ public class CarWheel {
     }
 
     public void printCondition() {
-        System.out.println("Шины стерты на " + (100 - conditionOfWheel*100) + "%");
+        System.out.println("Шины стерты на " +
+                (100 - conditionOfWheel*100) + "%");
     }
 }
