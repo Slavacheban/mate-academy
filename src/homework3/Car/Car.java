@@ -1,7 +1,5 @@
 package homework3.Car;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class Car {
     private final String dateOfBurn;
     private String typeOfEngine;
