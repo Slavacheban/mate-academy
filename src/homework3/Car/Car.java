@@ -108,40 +108,48 @@ public class Car {
     static class CarBuilder {
         private Car car;
 
-        Car build() {
+        private Car build() {
             return car;
         }
 
-        void setCarMaxSpeed(int maxSpeed) {
+        CarBuilder setCarMaxSpeed(int maxSpeed) {
             car.maxSpeed = maxSpeed;
+            return this;
         }
 
-        void setCarTimeOf100km(int timeOf100km) {
+        CarBuilder setCarTimeOf100km(int timeOf100km) {
             car.timeOf100km = timeOf100km;
+            return this;
         }
 
-        void setCarPeopleCapacity(int peopleCapacity) {
+        CarBuilder setCarPeopleCapacity(int peopleCapacity) {
             car.peopleCapacity = peopleCapacity;
+            return this;
         }
 
-        void setCarHasPeople(int hasPeople) {
+        CarBuilder setCarHasPeople(int hasPeople) {
             car.hasPeople = hasPeople;
+            return this;
         }
 
-        void setCarTypeOfEngine(String typeOfEngine) {
+        CarBuilder setCarTypeOfEngine(String typeOfEngine) {
             car.typeOfEngine = typeOfEngine;
+            return this;
         }
 
-        void setCarCurrentSpeed(int currentSpeed) {
+        CarBuilder setCarCurrentSpeed(int currentSpeed) {
             car.currentSpeed = currentSpeed;
+            return this;
         }
 
-        void setCarAllWheel(CarWheel[] allWheel) {
+        CarBuilder setCarAllWheel(CarWheel[] allWheel) {
             car.allWheel = allWheel;
+            return this;
         }
 
-        void setCarAllDoor(CarDoor[] allDoor) {
+        CarBuilder setCarAllDoor(CarDoor[] allDoor) {
             car.allDoor = allDoor;
+            return this;
         }
     }
 }
