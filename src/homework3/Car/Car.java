@@ -31,6 +31,10 @@ public class Car {
         this.allDoor = allDoor;
     }
 
+    public Car() {
+        this.dateOfBurn = LocalDate.now();
+    }
+
     public Car getCar() {
         return new CarBuilder().build();
     }
@@ -82,8 +86,7 @@ public class Car {
     public int carrentMaxSpeed() {
         if (hasPeople == 0) {
             return 0;
-        }
-        else {
+        } else {
             double min = allWheel[0].getConditionOfWheel();
             for (int i = 1; i < allWheel.length; i++) {
                 if (allWheel[i].getConditionOfWheel() < min) {
@@ -102,8 +105,8 @@ public class Car {
         System.out.println("There are " + hasPeople + " of people");
     }
 
-    class CarBuilder {
-        Car car;
+    static class CarBuilder {
+        private Car car;
 
         Car build() {
             return car;
