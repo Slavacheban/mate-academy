@@ -20,26 +20,23 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean add(T t) {
+    public void add(T t) {
         if (size == capasity) {
             reSize();
         }
         arr[size++] = t;
-        return true;
     }
 
     @Override
-    public T remove(int index) {
+    public void remove(int index) {
         if (index > capasity || index < 0) {
             System.out.println("Try again");
-            return null;
         } else {
             T[] newArr = (T[]) new Object[size - 1];
             System.arraycopy(arr, 0, newArr, 0, index);
             System.arraycopy(arr, index + 1, newArr, index, size--);
             T t = arr[index];
             arr = newArr;
-            return t;
         }
     }
 

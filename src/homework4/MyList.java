@@ -2,9 +2,9 @@ package homework4;
 
 public interface MyList<T> {
 
-    boolean add(T t);
+    void add(T t);
 
-    T remove(int i);
+    void remove(int i);
 
     void clear();
 
