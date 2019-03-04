@@ -54,10 +54,14 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T get(int i) {
-        MyNode<T> findNode = first;
-        for (int j = 1; j < i; j++) {
-            findNode = findNode.getNext();
+        try {
+            MyNode<T> findNode = first;
+            for (int j = 1; j < i; j++) {
+                findNode = findNode.getNext();
+            }
+            return findNode.getT();
+        } catch (Exception e) {
+            throw new IndexOutOfBoundsException();
         }
-        return findNode.getT();
     }
 }
