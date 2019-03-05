@@ -1,7 +1,5 @@
 package homework4;
 
-import java.util.Stack;
-
 public class MyStack<T> {
     private T[] arr;
     private static final int DEFAULT_CAPACITY = 10;
@@ -28,7 +26,6 @@ public class MyStack<T> {
             arr = newArr;
         } catch (Exception e) {
             System.out.println("Try again");
-            ;
         }
     }
 
@@ -42,13 +39,13 @@ public class MyStack<T> {
     }
 
     public T peek() {
-        return arr[0];
+        return arr[arr.length - 1];
     }
 
     public T pop() {
         T[] tt = (T[]) new Object[arr.length];
-        System.arraycopy(arr, 1, tt, 0, arr.length - 1);
-        T t = arr[0];
+        System.arraycopy(arr, 0, tt, 0, arr.length - 1);
+        T t = arr[arr.length - 1];
         arr = tt;
         return t;
     }

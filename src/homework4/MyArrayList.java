@@ -33,7 +33,7 @@ public class MyArrayList<T> implements MyList<T> {
             System.arraycopy(arr, index + 1, newArr, index, size--);
             arr = newArr;
         } catch (Exception e) {
-            System.out.println("Try again");;
+            System.out.println("Try again");
         }
     }
 

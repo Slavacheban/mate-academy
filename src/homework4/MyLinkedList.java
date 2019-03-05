@@ -61,7 +61,8 @@ public class MyLinkedList<T> implements MyList<T> {
             }
             return findNode.getT();
         } catch (Exception e) {
-            throw new IndexOutOfBoundsException();
+            e.printStackTrace();
+            return null;
         }
     }
 }
