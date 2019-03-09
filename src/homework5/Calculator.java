@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
-public class Calculator {
+public abstract class Calculator {
 
     Map<Character, BinaryOperator<Double>> map;
 
@@ -22,4 +22,6 @@ public class Calculator {
     interface Operationable {
         double calculate(double x, char operand, double y);
     }
+
+    public abstract double calculate(double x, char operand, double y);
 }
