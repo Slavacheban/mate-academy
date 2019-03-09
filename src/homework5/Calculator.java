@@ -10,55 +10,16 @@ public class Calculator {
 
     public Calculator() {
         map = new HashMap<>();
-        map.put('+', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return a + b;
-            }
-        });
-        map.put('-', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return a - b;
-            }
-        });
-        map.put('*', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return a * b;
-            }
-        });
-        map.put('/', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return a / b;
-            }
-        });
-        map.put('p', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return Math.pow(a, b);
-            }
-        });
-        map.put('@', new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double a, Double b) {
-                return Math.pow((a + b) / (a + 117), b);
-            }
-        });
-    }
-
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        Operationable operation = (a, b, ch) -> ((BinaryOperator<Double>) calculator.map.get(ch))
-                .apply(a, b);
-        System.out.println(operation.calculate(5, 4, '-'));
-        System.out.println(operation.calculate(5, 4, '+'));
-        System.out.println(operation.calculate(5, 4, '*'));
+        map.put('+', (a, b) -> (a + b));
+        map.put('-', (a, b) -> (a - b));
+        map.put('*', (a, b) -> (a * b));
+        map.put('/', (a, b) -> (a / b));
+        map.put('p', (a, b) -> Math.pow(a, b));
+        map.put('@', (a, b) -> Math.pow((a + b) / (a + 117), b));
     }
 
     @FunctionalInterface
     interface Operationable {
-        double calculate(double x, double y, char ch);
+        double calculate(double x, char operand, double y);
     }
 }
