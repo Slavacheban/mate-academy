@@ -19,6 +19,6 @@ public class Calculator {
     }
 
     public double calculate(double x, char operand, double y) {
-        return (map.get(operand)).apply(x, y);
+        return map.get(operand).apply(x, y);
     }
 }
