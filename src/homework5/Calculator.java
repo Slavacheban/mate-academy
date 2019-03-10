@@ -6,7 +6,7 @@ import java.util.function.BinaryOperator;
 
 public class Calculator {
 
-    Map<Character, BinaryOperator<Double>> map;
+    private Map<Character, BinaryOperator<Double>> map;
 
     public Calculator() {
         map = new HashMap<>();
