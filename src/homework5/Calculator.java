@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
-public abstract class Calculator {
+public class Calculator {
 
     Map<Character, BinaryOperator<Double>> map;
 
@@ -18,10 +18,7 @@ public abstract class Calculator {
         map.put('@', (a, b) -> Math.pow((a + b) / (a + 117), b));
     }
 
-    @FunctionalInterface
-    interface Operationable {
-        double calculate(double x, char operand, double y);
+    public double calculate(double x, char operand, double y) {
+        return (map.get(operand)).apply(x, y);
     }
-
-    public abstract double calculate(double x, char operand, double y);
 }
