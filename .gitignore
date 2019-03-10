@@ -3,7 +3,8 @@
 
 # t
 .idea/
-.iml
+*.iml
 out/
+
 
 
