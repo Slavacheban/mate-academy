@@ -3,8 +3,8 @@ package homework6;
 public class Main {
     public static void main(String[] args) {
         FlowerStore flowerStore = new FlowerStore();
-        Flower[] flowers1 = flowerStore.sell(4, 5 , 2);
-        Flower[] flowers2 = flowerStore.sellSequence(4, 5 , 2);
+        Flower[] flowers1 = flowerStore.sell(4, 5, 2);
+        Flower[] flowers2 = flowerStore.sellSequence(4, 5, 2);
 
         for (int i = 0; i < flowers1.length; i++) {
             System.out.print(flowers1[i].toString());
