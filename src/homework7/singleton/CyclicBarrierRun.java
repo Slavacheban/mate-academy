@@ -13,11 +13,11 @@ public class CyclicBarrierRun implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Запуск потока " + name);
+        System.out.println("running thread " + name);
         try {
-            System.out.println("Поток " + name + " ожидает разрешения");
+            System.out.println("Thread " + name + " waiting");
             cyclicBarrier.await();
-            System.out.println("Поток " + name + " получает разрешение");
+            System.out.println("Thread " + name + " get permission");
             for (int i = 0; i < 10 ; i++) {
                 System.out.println(SinglCount.getInstance().inc() + " " + name);
                 Thread.currentThread().sleep(100);
@@ -25,6 +25,6 @@ public class CyclicBarrierRun implements Runnable {
         } catch (Exception exc) {
             System.out.println(exc);
         }
-        System.out.println("Поток " + name + " освобождает разрешение");
+        System.out.println("Thread " + name + " release permission");
     }
 }

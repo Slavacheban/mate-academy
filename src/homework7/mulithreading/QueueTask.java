@@ -1,6 +1,5 @@
 package homework7.mulithreading;
 
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -13,35 +12,41 @@ public class QueueTask {
 
     public Thread[] getThreads() {
         Thread thread1 = new Thread(() -> {
-            System.out.println("Начало рабочего дня");
-            int i = 0;
-            for (int j = 0; j < 100; j++) {
-                queue.add(1);
-                System.out.println("Добавили элемент " + i++);
-                try {
-                    Thread.currentThread().sleep(100);
-                } catch (InterruptedException e) {
-                    System.out.println("Поставки закончились");
-                }
-            }
-            Thread.currentThread().interrupt();
+            produce();
         });
 
         Thread thread2 = new Thread(() -> {
-            int i = 0;
-            for (int j = 0; j < 100; j++) {
-                try {
-                    queue.take();
-                    System.out.println("Обработали елемент " + i++);
-                    Thread.currentThread().sleep(100);
-                } catch (InterruptedException e) {
-                    System.out.println("Конец рабочего дня");
-                }
-            }
-            Thread.currentThread().interrupt();
+            fixing();
         });
 
         return new Thread[]{thread1, thread2};
+    }
+
+    private void fixing() {
+        for (int j = 0; j < 100; j++) {
+            try {
+                queue.take();
+                System.out.println("Fixed element " + j++);
+                Thread.currentThread().sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println("end...");
+            }
+        }
+        Thread.currentThread().interrupt();
+    }
+
+    private void produce() {
+        System.out.println("Begin of working day");
+        for (int j = 0; j < 100; j++) {
+            queue.add(1);
+            System.out.println("Add element " + j++);
+            try {
+                Thread.currentThread().sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println("end..");
+            }
+        }
+        Thread.currentThread().interrupt();
     }
 
     public void doSomething(Thread... threads) {

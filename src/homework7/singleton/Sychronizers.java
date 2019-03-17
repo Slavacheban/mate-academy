@@ -1,6 +1,5 @@
 package homework7.singleton;
 
-
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
 

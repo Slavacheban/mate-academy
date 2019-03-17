@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 
+
 public class SynchronizersTask {
 
     public static void main(String[] args) throws Exception{

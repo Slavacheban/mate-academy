@@ -1,25 +1,23 @@
 package homework7.singleton;
 
-
 import java.util.concurrent.Semaphore;
 
-
 public class SemaphoreRun implements Runnable {
-    private Semaphore sem;
+    private Semaphore semaphore;
     private String name;
 
     public SemaphoreRun(Semaphore sem, String name) {
-        this.sem = sem;
+        this.semaphore = sem;
         this.name = name;
     }
 
     @Override
     public void run() {
-        System.out.println("Запуск потока " + name);
+        System.out.println("Starting thread " + name);
         try {
-            System.out.println("Поток " + name + " ожидает разрешения");
-            sem.acquire();
-            System.out.println("Поток " + name + " получает разрешение");
+            System.out.println("Thread " + name + " waiting");
+            semaphore.acquire();
+            System.out.println("Thread " + name + " get permission");
             for (int i = 0; i < 10 ; i++) {
                 System.out.println(SinglCount.getInstance().inc() + " " + name);
                 Thread.currentThread().sleep(100);
@@ -27,8 +25,6 @@ public class SemaphoreRun implements Runnable {
         } catch (InterruptedException exc) {
             System.out.println(exc);
         }
-        System.out.println("Поток " + name + " освобождает разрешение");
+        System.out.println("Thread " + name + " release permission");
     }
-
-
 }
