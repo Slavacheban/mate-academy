@@ -10,6 +10,5 @@ public class RecursClass {
         constructor.setAccessible(true);
         SinglCount singlCount1 = constructor.newInstance();
         System.out.println(singlCount == singlCount1);
-        System.out.println(singlCount.equals(singlCount1));
     }
 }
