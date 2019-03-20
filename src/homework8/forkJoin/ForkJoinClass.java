@@ -5,8 +5,8 @@ import java.util.concurrent.RecursiveTask;
 public class ForkJoinClass extends RecursiveTask<Long> {
     private static final int PROCESSES = Runtime.getRuntime().availableProcessors();
     private static final Long COUNT = 1000000000L;
-    long from;
-    long to;
+    private long from;
+    private long to;
 
     public ForkJoinClass(long from, long to) {
         this.from = from;
