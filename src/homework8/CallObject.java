@@ -2,7 +2,7 @@ package homework8;
 
 import java.util.concurrent.Callable;
 
-public class CallObject implements Callable {
+public class CallObject implements Callable<String> {
     private String name;
 
     public CallObject(String name) {
